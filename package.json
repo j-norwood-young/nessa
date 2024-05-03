@@ -1,0 +1,34 @@
+{
+  "name": "nessa",
+  "version": "0.1.0",
+  "description": "Serves an image or iframe on a third party site, while recording it as a pageview in your own infrastructure.",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js"
+  },
+  "keywords": [
+    "analytics",
+    "elasticsearch",
+    "kibana"
+  ],
+  "author": "Jason Norwood-Young",
+  "license": "MIT",
+  "dependencies": {
+    "@elastic/elasticsearch": "^8.13.1",
+    "axios": "^1.6.8",
+    "bowser": "^2.11.0",
+    "bull": "^4.12.2",
+    "cookies": "^0.9.1",
+    "lodash.template": "4.5.0",
+    "maxmind": "^4.3.19",
+    "referer-parser": "^0.0.3",
+    "utm-extractor": "^1.0.8",
+    "uuid": "^9.0.1"
+  },
+  "type": "module",
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  }
+}

@@ -1,0 +1,36 @@
+version: '3.6'
+services:
+  app:
+    build:
+      dockerfile: ./Dockerfile
+    restart: unless-stopped
+    stdin_open: true
+    tty: true
+    ports:
+      - 3000:3000
+    env_file:
+      - .env
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+      - HOST=0.0.0.0
+      - REDIS_URL=redis://keydb:6379
+      - QUEUE_NAME=pageviews
+      - ELASTICSEARCH_URL=https://es01:9200
+      - ELASTICSEARCH_INDEX=pageviews
+    volumes:
+      - ./src:/app/src
+      - certs:/usr/share/kibana/config/certs
+  keydb:
+    image: eqalpha/keydb
+    restart: unless-stopped
+    ports:
+      - 6379:6379
+    volumes:
+      - keydbdata:/data
+      - ./redis.conf:/etc/keydb/redis.conf
+volumes:
+  keydbdata:
+    driver: local
+include:
+  - docker-compose.es.yml
