@@ -1,6 +1,6 @@
 {
   "name": "nessa",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Serves an image or iframe on a third party site, while recording it as a pageview in your own infrastructure.",
   "main": "src/index.js",
   "scripts": {
