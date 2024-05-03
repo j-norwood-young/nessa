@@ -22,12 +22,17 @@ export class Consumer {
         this.queue = new Queue(queue_name, process.env.REDIS_URL || "redis://localhost:6379");
         this.esclient = esclient;
         this.queue.process(async job => {
-            const data = await enrich(job.data);
-            console.log(data);
-            await this.esclient.index({
-                index,
-                body: data
-            });
+            try {
+                const data = await enrich(job.data);
+                console.log(data);
+                await this.esclient.index({
+                    index,
+                    body: data
+                });
+            } catch(err) {
+                console.error(err);
+                throw err;
+            }
         })
     }
 }
