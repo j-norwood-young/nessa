@@ -1,10 +1,10 @@
 import Referer from "referer-parser";
 
-export const parse_referer = function (referer, url) {
+export const parse_referer = function (sent_referer, url) {
     let referer_medium = "direct";
     let referer_source = "";
-    if (referer) {
-        let referer = new Referer(referer, url);
+    if (sent_referer) {
+        let referer = new Referer(sent_referer, url);
         referer_medium = referer.medium;
         referer_source = referer.referer;
         if (referer_medium === "unknown")
