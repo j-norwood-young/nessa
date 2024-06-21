@@ -8,6 +8,9 @@ export const enrich = async function (hit) {
     let referer = parse_referer(hit.referer);
     if (!referer.referer_source) {
         referer = referer_lookup(hit.url);
+        if (referer.referer_source) {
+            hit.referer = referer.referer_source;
+        }
     }
     const useragent = parse_useragent(hit.ua);
     const geo = await geolocate(hit.ip);
