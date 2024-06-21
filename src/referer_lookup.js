@@ -19,6 +19,10 @@ const referer_lookup_table = [
         regex: /-bd\?/i,
         referer_source: "https://www.businesslive.co.za"
     },
+    {
+        regex: /-mg\?/i,
+        referer_source: "https://mg.co.za"
+    },
 ];
 
 export const referer_lookup = function (url) {
