@@ -4,6 +4,10 @@ const referer_lookup_table = [
         referer_source: "https://news24.com"
     },
     {
+        regex: /-news24\?/i,
+        referer_source: "https://news24.com"
+    },
+    {
         regex: /-ewn\?/i,
         referer_source: "https://www.ewn.co.za"
     },
